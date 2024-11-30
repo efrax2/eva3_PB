@@ -21,11 +21,13 @@ from appBD import views
 urlpatterns = [
     path('',views.Index_Alumnos),
     path('admin/', admin.site.urls),
+    
     path('alumnos/',views.Index_Alumnos),
     path('create-alumnos/',views.Create_Alumnos),
     path('view-alumnos/<int:id>',views.View_Alumnos),
     path('update-alumnos/<int:id>',views.Update_Alumnos),
     path('delete-alumnos/<int:id>',views.Delete_Alumnos),
+    path('filter-alumnos/',views.Filter_Alumnos),
     
     path('Cursos/',views.Index_TipoCursos),
     path('create-Cursos/',views.Create_TipoCursos),

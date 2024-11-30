@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from appBD.models import alumnos,tipo_cursos,matriculas,ciudades,sucursales,usuarios
 from . import forms
-from .forms import AlumnoForm,tipo_cursosForm,MatriculasForm,SucursalesForm, CiudadesForm
+from .forms import AlumnoForm,tipo_cursosForm,MatriculasForm,SucursalesForm, CiudadesForm, AlumnoFilterForm
 # Create your views here.
 
 ## Tabla: Alumnos
@@ -219,3 +219,26 @@ def Delete_Ciudades(request,id):
 ## Tabla: usuarios usuarios
 
 #Fin Tabla: usuarios  
+
+## Filtro de Alumnos
+
+def Filter_Alumnos(request):
+    form=AlumnoFilterForm()
+    Alumnos=alumnos.objects.all()
+    alumnosdata=request.GET
+
+    if alumnosdata.get('ALUMRUT'):
+        Alumnos = Alumnos.filter(ALUMRUT__icontains=alumnosdata.get('ALUMRUT'))
+    if alumnosdata.get('ALUMAPATERNO'):
+        Alumnos = Alumnos.filter(ALUMAPATERNO__icontains=alumnosdata.get('ALUMAPATERNO'))
+    if alumnosdata.get('ALUMAMATERNO'):
+        Alumnos = Alumnos.filter(ALUMAMATERNO__icontains=alumnosdata.get('ALUMAMATERNO'))
+    if alumnosdata.get('ALUMDIRECCION'):
+        Alumnos = Alumnos.filter(ALUMDIRECCION__icontains=alumnosdata.get('ALUMDIRECCION'))
+    if alumnosdata.get('ALUMEMAIL'):
+        Alumnos = Alumnos.filter(ALUMEMAIL__icontains=alumnosdata.get('ALUMEMAIL'))
+    if alumnosdata.get('ALUMNFONO'):
+        Alumnos = Alumnos.filter(ALUMNFONO__icontains=alumnosdata.get('ALUMNFONO'))
+
+    data={'form':form, 'Alumnos': Alumnos}
+    return render(request,'alumnos-filtro.html',data)

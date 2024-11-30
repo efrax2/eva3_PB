@@ -1,6 +1,45 @@
 from django import forms 
 from appBD.models import alumnos, tipo_cursos, matriculas, sucursales, ciudades, usuarios
 
+
+class AlumnoFilterForm(forms.Form):
+    ALUMRUT = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control'}),
+        label="RUT del Alumno"
+    )
+    ALUMNOMBRE = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control'}),
+        label="Nombre del Alumno"
+    )
+    ALUMAPATERNO = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control'}),
+        label="Apellido Paterno del Alumno"
+    )
+    ALUMAMATERNO = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control'}),
+        label="Apellido Materno del Alumno"
+    )
+    ALUMDIRECCION = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control'}),
+        label="Direccion del Alumno"
+    )
+    ALUMEMAIL = forms.EmailField(
+        required=False,
+        widget=forms.EmailInput(attrs={'class': 'form-control'}),
+        label="Correo del Alumno"
+    )
+    ALUMNFONO = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control'}),
+        label="Telefono del Alumno"
+    )
+
+
 class AlumnoForm(forms.ModelForm):
     class Meta:
         model=alumnos
