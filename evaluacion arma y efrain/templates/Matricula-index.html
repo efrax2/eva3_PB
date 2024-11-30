@@ -1,0 +1,44 @@
+{%include 'header.html'%}
+<div class='container mt-5'>
+   <div class="alert alert-success display-1">Matriculas</div>
+   {%if Matricula%}
+        <table class="table table-striped">
+              <thead>
+                    <tr>
+                        <th>Numero de Matricula:</th>
+                        <th>Codigo de tipo de Curso:</th>
+                        <th>Rut del alumno:</th>
+                        <th>Codigo de Sucursal:</th>
+                        <th>Fecha de Matricula:</th>
+                        <th colspan="3">Acciones</th>
+                    </tr>
+                <tbody>
+                        {%for Mat in Matricula%}   
+                            <tr>
+                                <td>{{Mat.MATNUMERO}}</td>
+                                <td>{{Mat.TIPCURCODIGO.TIPCURCODIGO}}</td>
+                                <td>{{Mat.ALUMRUT.ALUMRUT}}</td>
+                                <td>{{Mat.SUCCODIGO.SUCCODIGO}}</td>
+                                <td>{{Mat.MATFECHA}}</td>
+                                <td><a href="../update-Matricula/{{com.id}}" 
+                                    class="btn btn-warning">
+                                    <i class="bi bi-pencil"></i></a>
+                                </td>
+                                <td><a href="../delete-Matricula/{{com.id}}" 
+                                    class="btn btn-danger">
+                                    <i class="bi bi-trash"></i></a>
+                                </td>
+                                <td><a href="../view-Matricula/{{com.id}}" 
+                                    class="btn btn-success">
+                                    <i class="bi bi-eye"></i></a>
+                                </td>
+                            </tr>
+                            {%endfor%}
+                </tbody>
+        </table>
+        {%else%}
+              <div class="alert alert-info">No Hay Matriculas a Mostrar</div>
+        {%endif%}
+        <a href="/create-Matricula/" class="btn btn-success">Agregar</a>
+</div>
+{%include 'footer.html'%}   

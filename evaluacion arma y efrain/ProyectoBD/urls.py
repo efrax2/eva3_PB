@@ -19,6 +19,7 @@ from django.urls import path
 from appBD import views
 
 urlpatterns = [
+    path('',views.Index_Alumnos),
     path('admin/', admin.site.urls),
     path('alumnos/',views.Index_Alumnos),
     path('create-alumnos/',views.Create_Alumnos),
@@ -45,7 +46,7 @@ urlpatterns = [
     path('delete-ciudades/<int:id>',views.Delete_Ciudades),
     
     
-    path('Matricula/',views.View_Matricula),
+    path('Matricula/',views.Index_Matricula),
     path('create-Matricula/',views.Create_Matricula),
     path('view-Matricula/<int:id>',views.View_Matricula),
     path('update-Matricula/<int:id>',views.Update_Matricula), 

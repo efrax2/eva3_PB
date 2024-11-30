@@ -5,71 +5,64 @@
     </head>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <a class="navbar-brand" href="#">Navegacion</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navegacion-principal" aria-controls="navegacion-principal" aria-expanded="false">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div class="collapse navbar-collapse" id="navegacion-principal">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/alumnos/">Alumnos</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/Sucursales/">Sucursales</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/Cursos/">Cursos</a>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/ciudades/">Ciudades</a>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/Matricula/">Matricula</a>
-              </li>
-
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown-archivo" data-bs-toggle="dropdown" aria-expanded="false">
                   Archivo
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Ciudades</a>
-                  <a class="dropdown-item" href="Sucursales/">Sucursales</a>
-                  <a class="dropdown-item" href="#">Tipos de Curso</a>
-                  <a class="dropdown-item" href="#">Usuarios</a>
-                  <a class="dropdown-item" href="#">Salir</a>
+                <div class="collapse navbar-collapse" id="dropdown-archivo">
+                  <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                      <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" href="/ciudades/">Ciudades</a></li>
+                        <li><a class="dropdown-item" href="/Sucursales/">Sucursales</a></li>
+                        <li><a class="dropdown-item" href="/Cursos/">Tipos de Curso</a></li>
+                        <li><a class="dropdown-item" href="#">Usuarios</a></li>
+                        <li><a class="dropdown-item" href="#">Salir</a></li>
+                      </ul>
+                    </li>
+                  </ul>
                 </div>
               </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Dropdown link
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+
+              <li class="nav-item">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown-movimientos" data-bs-toggle="dropdown" aria-expanded="false">
                   Movimientos
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="/alumnos/">Alumnos</a>
-                  <a class="dropdown-item" href="#">Matrículas</a>
+                <div class="collapse navbar-collapse" id="dropdown-movimientos">
+                  <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                      <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" href="/alumnos/">Alumnos</a></li>
+                        <li><a class="dropdown-item" href="/Matricula/">Matriculas</a></li>
+                      </ul>
+                    </li>
+                  </ul>
                 </div>
               </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+              <li class="nav-item">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown-consultas" data-bs-toggle="dropdown" aria-expanded="false">
                   Consultas
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Alumnos x Criterios</a>
-                  <a class="dropdown-item" href="#">Matrículas x Fecha</a>
-                  <a class="dropdown-item" href="#">Matrículas x Sucursal</a>
+                <div class="collapse navbar-collapse" id="dropdown-consultas">
+                  <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                      <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" href="#">Alumnos x criterios</a></li>
+                        <li><a class="dropdown-item" href="#">Matrículas x Fecha</a></li>
+                        <li><a class="dropdown-item" href="#">Matrículas x Sucursal</a></li>
+                      </ul>
+                    </li>
+                  </ul>
                 </div>
               </li>
+
               <li class="nav-item">
                 <a class="nav-link" href="#">Salir</a>
               </li>

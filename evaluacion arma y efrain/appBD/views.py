@@ -23,12 +23,12 @@ def Create_Alumnos(request):
     
     
 def View_Alumnos(request,id):
-    Alumnos=alumnos.objects.get(id=id)
+    Alumnos=alumnos.objects.get(ALUMRUT=id)
     data={'Alumnos':Alumnos}
     return render(request,'alumnos-view.html',data)
 
 def Update_Alumnos(request,id):
-    Alumnos=alumnos.objects.get(id=id)
+    Alumnos=alumnos.objects.get(ALUMRUT=id)
     form=AlumnoForm(instance=Alumnos)
     if request.method=="POST":
         form=AlumnoForm(request.POST,instance=Alumnos)
@@ -40,7 +40,7 @@ def Update_Alumnos(request,id):
 
 
 def Delete_Alumnos(request,id):
-    Alumnos=alumnos.objects.get(id=id)
+    Alumnos=alumnos.objects.get(ALUMRUT=id)
     Alumnos.delete()
     return redirect("/alumnos")
 
@@ -65,12 +65,12 @@ def Create_TipoCursos(request):
     
     
 def View_TipoCursos(request,id):
-    Cursos=tipo_cursos.object.get(id=id)
+    Cursos=tipo_cursos.object.get(TIPCURCODIGO=id)
     data={'Cursos':Cursos}
     return render(request,'Cursos-view.html',data)
 
 def Update_TipoCursos(request,id):
-    Cursos=tipo_cursos.objects.get(id=id)
+    Cursos=tipo_cursos.objects.get(TIPCURCODIGO=id)
     form=tipo_cursosForm(instance=Cursos)
     if request.method=="POST":
         form=tipo_cursosForm(request.POST,instance=Cursos)
@@ -82,7 +82,7 @@ def Update_TipoCursos(request,id):
 
 
 def Delete_TipoCursos(request,id):
-    Cursos=tipo_cursos.objects.get(id=id)
+    Cursos=tipo_cursos.objects.get(TIPCURCODIGO=id)
     Cursos.delete()
     return redirect("/Cursos")
 #Fin Tabla: tipocursos  
@@ -107,7 +107,7 @@ def Create_Matricula(request):
     
     
 def View_Matricula(request,id):
-    Matricula=matriculas.object.get(id=id)
+    Matricula=matriculas.objects.get(MATNUMERO=id)
     data={'Matricula':Matricula}
     return render(request,'Matricula-view.html',data)
 
@@ -145,16 +145,16 @@ def Create_Sucursales(request):
             form.save()
         return Index_Sucursales(request)
     data={'form': form, 'titulo':'Agregar Sucursal'}
-    return render(request, 'Sucursales-create.html')
+    return render(request, 'Sucursales-create.html', data)
     
     
 def View_Sucursales(request,id):
-    Sucursales=sucursales.objects.get(id=id)
+    Sucursales=sucursales.objects.get(SUCCODIGO=id)
     data={'Sucursales':Sucursales}
     return render(request,'Sucursales-view.html',data)
 
 def Update_Sucursales(request,id):
-    Sucursales=sucursales.objects.get(id=id)
+    Sucursales=sucursales.objects.get(CIUCODIGO=id)
     form=SucursalesForm(instance=Sucursales)
     if request.method=="POST":
         form=SucursalesForm(request.POST,instance=Sucursales)
@@ -166,7 +166,7 @@ def Update_Sucursales(request,id):
 
 
 def Delete_Sucursales(request,id):
-    Sucursales=sucursales.objects.get(id=id)
+    Sucursales=sucursales.objects.get(CIUCODIGO=id)
     Sucursales.delete()
     return redirect("/Sucursales")
 
@@ -193,12 +193,12 @@ def Create_Ciudades(request):
     
     
 def View_Ciudades(request,id):
-    Ciudad=ciudades.objects.get(id=id)
+    Ciudad=ciudades.objects.get(CIUCODIGO=id)
     data={'Ciudad':Ciudad}
     return render(request,'Ciudad-view.html',data)
 
 def Update_Ciudades(request,id):
-    Ciudad=ciudades.objects.get(id=id)
+    Ciudad=ciudades.objects.get(CIUCODIGO=id)
     form=CiudadesForm(instance=Ciudad)
     if request.method=="POST":
         form=CiudadesForm(request.POST,instance=Ciudad)
@@ -210,7 +210,7 @@ def Update_Ciudades(request,id):
 
 
 def Delete_Ciudades(request,id):
-    Ciudad=ciudades.objects.get(id=id)
+    Ciudad=ciudades.objects.get(CIUCODIGO=id)
     Ciudad.delete()
     return redirect("/ciudades")
 

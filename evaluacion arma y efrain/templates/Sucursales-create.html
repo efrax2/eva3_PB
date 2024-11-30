@@ -1,25 +1,10 @@
 {%include 'header.html'%}
 <div class='container mt-5'>
    <div class="alert alert-success display-1">Crear Sucursal</div>
-    <form method="POST" action="/create-comuna/">
-         {% csrf_token %}
-         <div class="row">
-             <div class="col-md-6">
-                 <div class="mb-3">
-                    <label for="txtcomuna" class="form-label">Sucursal</label>
-                    <input type="text" class="form-control" id="txtcomuna"
-                       name="txtcomuna" placeholder="Nombre de la Sucursal">
-                 </div>
-                 <select class="form-select" aria-label="Default Select" 
-                     name="ciudad">
-                     <option value="-1">Seleccionar Ciudad</option>
-                     {%for ciu in Ciudad%}
-                        <option value="{{ciu.id}}">{{ciu.CIUNOMBRE}}</option>
-                    {%endfor%}
-                </select>
-                <input type="submit" class="btn btn-success" value="Guardar">
-             </div> 
-        </div>
+    <form method="POST" action="/create-Sucursales/">
+            {%csrf_token %}
+            {{form.as_p}}
+            <input type='submit' class="btn btn-success" value="Guardar">
     </form>
 </div>
 {%include 'footer.html'%}   

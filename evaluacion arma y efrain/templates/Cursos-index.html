@@ -5,7 +5,7 @@
          <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th>Tipo curso codigo</th>
                     <th>Curso nombre</th>
                     <th>Curso Valor</th>
 
@@ -15,7 +15,7 @@
             <tbody>
                 {%for Cur in Cursos%}
                 <tr>
-                    <td>{{Cur.id}}</td>
+                    <td>{{Cur.TIPCURCODIGO}}</td>
                     <td>{{Cur.TIPCURNOMBRE}}</td>
                     <td>{{Cur.TIPCURVALOR}}</td>
                     <td>
@@ -40,6 +40,6 @@
         {%else%}
             <div class="alert alert-info">No Hay Cursos!!!!</div>
         {%endif%}
-        <a href="create-Cursos/" class="btn btn-success">Agregar</a>
+        <a href="/create-Cursos/" class="btn btn-success">Agregar</a>
         </div>    
 {%include 'footer.html'%}       

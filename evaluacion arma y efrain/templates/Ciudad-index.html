@@ -5,7 +5,7 @@
          <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th>Codigo de ciudad</th>
                     <th>Ciudad</th>
 
                     <th colspan="3">Acciones</th>
@@ -14,7 +14,7 @@
             <tbody>
                 {%for Ciudades in Ciudad%}
                 <tr>
-                    <td>{{Ciudades.id}}</td>
+                    <td>{{Ciudades.CIUCODIGO}}</td>
                     <td>{{Ciudades.CIUNOMBRE}}</td>
                     <td>
                         <a href="../view-ciudades/{{Ciudades.id}}"
