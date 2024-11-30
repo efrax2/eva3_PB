@@ -1,9 +1,10 @@
 {%include 'header.html'%}
     <div class="container mt-5">
-        <div class="alert alert-success display-1">Alumnos</div>
+        <div class="alert alert-success display-1">Sucursales</div>
         <table class="table table-striped">
-          <tr><td>Codigo de Ciudad: </td><td>{{ciudades.CIUCODIGO}}</td></tr>
-          <tr><td>Sucursales: </td><td>{{Sucursales.SUCNOMBRE}}</td></tr>
+          <tr><td>Codigo de Sucursal: </td><td>{{Sucursales.SUCCODIGO}}</td></tr>
+          <tr><td>Codigo de Ciudad: </td><td>{{Sucursales.CIUCODIGO}}</td></tr>
+          <tr><td>Nombre de Sucursal: </td><td>{{Sucursales.SUCNOMBRE}}</td></tr>
         </table>
        <a href="/Sucursales/" class="btn btn-success">Volver</a>
     </div>

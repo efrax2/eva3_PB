@@ -17,17 +17,17 @@
                     <td>{{Ciudades.CIUCODIGO}}</td>
                     <td>{{Ciudades.CIUNOMBRE}}</td>
                     <td>
-                        <a href="../view-ciudades/{{Ciudades.id}}"
+                        <a href="/view-ciudades/{{Ciudades.CIUCODIGO}}"
                           class='btn btn-success'><i class="bi bi-eye"></i>
                        </a>
                     </td>
                     <td>
-                        <a href="../#/{{Ciudades.id}}"
+                        <a href="/update-ciudades/{{Ciudades.CIUCODIGO}}"
                           class='btn btn-warning'><i class="bi bi-pencil"></i>
                        </a>
                     </td>
                     <td>
-                        <a href="../#/{{Ciudades.id}}"
+                        <a href="/delete-ciudades/{{Ciudades.CIUCODIGO}}"
                           class='btn btn-danger'><i class="bi bi-trash"></i>
                        </a>
                     </td>
@@ -36,8 +36,8 @@
             </tbody>
          </table>
         {%else%}
-            <div class="alert alert-info">No Hay Alumnos!!!!</div>
+            <div class="alert alert-info">No Hay Ciudades!!!!</div>
         {%endif%}
-        <a href="../create-ciudades/" class="btn btn-success">Agregar</a>
+        <a href="/create-ciudades/" class="btn btn-success">Agregar</a>
         </div>    
 {%include 'footer.html'%}       

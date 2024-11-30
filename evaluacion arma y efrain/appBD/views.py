@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from appBD.models import alumnos,tipo_cursos,matriculas,ciudades,sucursales,usuarios
 from . import forms
-from .forms import AlumnoForm,tipo_cursosForm,MatriculasForm,SucursalesForm, CiudadesForm, AlumnoFilterForm
+from .forms import AlumnoForm,tipo_cursosForm,MatriculasForm,SucursalesForm, CiudadesForm, AlumnoFilterForm, CursoFilterForm, CiudadesFilterForm
 # Create your views here.
 
 ## Tabla: Alumnos
@@ -112,7 +112,7 @@ def View_Matricula(request,id):
     return render(request,'Matricula-view.html',data)
 
 def Update_Matricula(request,id):
-    Matricula=matriculas.objects.get(id=id)
+    Matricula=matriculas.objects.get(MATNUMERO=id)
     form=MatriculasForm(instance=Matricula)
     if request.method=="POST":
         form=MatriculasForm(request.POST,instance=Matricula)
@@ -124,7 +124,7 @@ def Update_Matricula(request,id):
 
 
 def Delete_Matricula(request,id):
-    Matricula=matriculas.objects.get(id=id)
+    Matricula=matriculas.objects.get(MATNUMERO=id)
     Matricula.delete()
     return redirect("/Matricula")
 
@@ -154,7 +154,7 @@ def View_Sucursales(request,id):
     return render(request,'Sucursales-view.html',data)
 
 def Update_Sucursales(request,id):
-    Sucursales=sucursales.objects.get(CIUCODIGO=id)
+    Sucursales=sucursales.objects.get(SUCCODIGO=id)
     form=SucursalesForm(instance=Sucursales)
     if request.method=="POST":
         form=SucursalesForm(request.POST,instance=Sucursales)
@@ -166,7 +166,7 @@ def Update_Sucursales(request,id):
 
 
 def Delete_Sucursales(request,id):
-    Sucursales=sucursales.objects.get(CIUCODIGO=id)
+    Sucursales=sucursales.objects.get(SUCCODIGO=id)
     Sucursales.delete()
     return redirect("/Sucursales")
 
@@ -242,3 +242,33 @@ def Filter_Alumnos(request):
 
     data={'form':form, 'Alumnos': Alumnos}
     return render(request,'alumnos-filtro.html',data)
+## Fin de  Filtro de Alumnos
+
+def Filter_Curso(request):
+    form=CursoFilterForm()
+    Cursos=tipo_cursos.objects.all()
+    Cursodata=request.GET
+
+    if Cursodata.get('TIPCURCODIGO'):
+        Cursos = Cursos.filter(TIPCURCODIGO__icontains=Cursodata.get('TIPCURCODIGO'))
+    if Cursodata.get('TIPCURNOMBRE'):
+        Cursos = Cursos.filter(TIPCURNOMBRE__icontains=Cursodata.get('TIPCURNOMBRE'))
+    if Cursodata.get('TIPCURVALOR'):
+        Cursos = Cursos.filter(TIPCURVALOR__icontains=Cursodata.get('TIPCURVALOR'))
+
+    data={'form':form, 'Cursos': Cursos}
+    return render(request,'Cursos-filtro.html',data)
+
+def Filter_Ciudades(request):
+    form=CiudadesFilterForm()
+    Ciudad=ciudades.objects.all()
+    Ciudadata=request.GET
+
+    if Ciudadata.get('CIUCODIGO'):
+        Ciudad = Ciudad.filter(CIUCODIGO__icontains=Ciudadata.get('CIUCODIGO'))
+    if Ciudadata.get('CIUNOMBRE'):
+        Ciudad = Ciudad.filter(CIUNOMBRE__icontains=Ciudadata.get('CIUNOMBRE'))
+
+    data={'form':form, 'Ciudad': Ciudad}
+    return render(request,'Ciudad-filtro.html',data)
+

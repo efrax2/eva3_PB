@@ -63,6 +63,9 @@ class AlumnoForm(forms.ModelForm):
         self.fields['ALUMEMAIL'].label = "Correo del Alumno"
         self.fields['ALUMNFONO'].label = "Telefono del Alumno"
 
+
+
+
 class tipo_cursosForm(forms.ModelForm):
     class Meta:
         model=tipo_cursos
@@ -78,6 +81,23 @@ class tipo_cursosForm(forms.ModelForm):
         self.fields['TIPCURCODIGO'].label = "Codigo del Curso"
         self.fields['TIPCURNOMBRE'].label = "Nombre del Curso"
         self.fields['TIPCURVALOR'].label = "Valor del Curso"
+
+class CursoFilterForm(forms.Form):
+    TIPCURCODIGO = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control'}),
+        label="Codigo del Curso"
+    )
+    TIPCURNOMBRE = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control'}),
+        label="Nombre del Curso"
+    )
+    TIPCURVALOR = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control'}),
+        label="Valor del Curso"
+    )
 
 class MatriculasForm(forms.ModelForm):
     class Meta:
@@ -99,6 +119,33 @@ class MatriculasForm(forms.ModelForm):
         self.fields['SUCCODIGO'].label = "Codigo de la Sucursal"
         self.fields['MATFECHA'].label = "Fecha de Matricula"
 
+class MatriculasFilterForm(forms.Form):
+    MATNUMERO = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control'}),
+        label="Numero de Matricula"
+    )
+    TIPCURCODIGO = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={'class': 'form-select'}),
+        label="Codigo del Curso"
+    )
+    ALUMRUT = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={'class': 'form-select'}),
+        label="Rut del Alumno"
+    )
+    SUCCODIGO = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={'class': 'form-select'}),
+        label="Codigo de la Sucursal"
+    )
+    MATFECHA = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control'}),
+        label="Fecha de Matricula"
+    )
+
 
 class SucursalesForm(forms.ModelForm):
     class Meta:
@@ -116,6 +163,24 @@ class SucursalesForm(forms.ModelForm):
         self.fields['CIUCODIGO'].label = "Codigo de la Ciudad"
         self.fields['SUCNOMBRE'].label = "Nombre de la Sucursal"
 
+class SucursalesFilterForm(forms.Form):
+    SUCCODIGO = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control'}),
+        label="Codigo de Sucursal"
+    )
+    CIUCODIGO = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={'class': 'form-select'}),
+        label="Codigo de la Ciudad"
+    )
+    SUCNOMBRE = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control'}),
+        label="Nombre de la Sucursal"
+    )
+
+
 
 class CiudadesForm(forms.ModelForm):
 
@@ -131,3 +196,16 @@ class CiudadesForm(forms.ModelForm):
 
         self.fields['CIUCODIGO'].label = "Codigo de la Ciudad"
         self.fields['CIUNOMBRE'].label = "Nombre de la Ciudad"
+
+class CiudadesFilterForm(forms.Form):
+    CIUCODIGO = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control'}),
+        label="Codigo de la Ciudad"
+    )
+    CIUNOMBRE = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control'}),
+        label="Nombre de la Ciudad"
+    )
+
