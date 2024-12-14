@@ -1,0 +1,47 @@
+{%include 'header.html'%}
+<div class='container mt-5'>
+  <form method="GET" action="/filter-Matricula/">
+    {% csrf_token %}
+    {{ form.as_p }}
+      <button type="submit" class="btn btn-primary">Buscar</button>
+  </form>
+  <hr>
+  <!-- Mostrar los Matricuñlas -->
+   <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Numero de Matricula:</th>
+        <th>Codigo-Valor del Curso:</th>
+        <th>Rut del alumno:</th>
+        <th>Codigo de Sucursal:</th>
+        <th>Fecha de Matricula:</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for Mat in Matricula %}
+        <tr>
+            <td>{{Mat.MATNUMERO}}</td>
+            <td>{{Mat.TIPCURCODIGO.TIPCURCODIGO}}  - {{ Mat.TIPCURCODIGO.TIPCURVALOR }}</td>
+            <td>{{Mat.ALUMRUT.ALUMRUT}}</td>
+            <td>{{Mat.SUCCODIGO.SUCCODIGO}}</td>
+            <td>{{Mat.MATFECHA}}</td>
+          <td>
+            <a href="/update-Matricula/{{Mat.MATNUMERO}}/">Editar</a>
+            <a href="/delete-Matricula/{{Mat.MATNUMERO}}/">Eliminar</a>
+          </td>
+        </tr>
+      {% endfor %}
+      <tr>
+        <td colspan="1" class="text-right"><strong>Total Valor de Cursos:</strong></td>
+        <td class="text-right"><strong>${{ total_valor }}</strong></td>
+    </tr>
+    <tr>
+        <td colspan="1" class="text-right"><strong>Total de Cursos:</strong></td>
+        <td><strong>{{ total_cursos }}</strong></td>
+    </tr>
+    </tbody>
+</div>
+
+<br>
+{%include 'footer.html'%}

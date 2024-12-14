@@ -1,0 +1,44 @@
+{%include 'header.html'%}
+    <div class="container mt-5">
+        <div class="alert alert-success display-1">Consultar Alumno</div>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class='btn btn-success'>Buscar</button>
+    </form>
+
+    {% if resultados %}
+        <h2>Resultados</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>RUT</th>
+                    <th>Nombre</th>
+                    <th>Apellido Paterno</th>
+                    <th>Apellido Materno</th>
+                    <th>Dirección</th>
+                    <th>Email</th>
+                    <th>Teléfono</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for alumno in resultados %}
+                    <tr>
+                        <td>{{ alumno.ALUMRUT }}</td>
+                        <td>{{ alumno.ALUMNOMBRE }}</td>
+                        <td>{{ alumno.ALUMAPATERNO }}</td>
+                        <td>{{ alumno.ALUMAMATERNO }}</td>
+                        <td>{{ alumno.ALUMDIRECCION }}</td>
+                        <td>{{ alumno.ALUMEMAIL }}</td>
+                        <td>{{ alumno.ALUMNFONO }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% elif resultados is not None %}
+        <p>No se encontraron alumnos que coincidan con los criterios de búsqueda.</p>
+    {% endif %}
+    </div>
+</div>
+
+{%include 'footer.html'%}   

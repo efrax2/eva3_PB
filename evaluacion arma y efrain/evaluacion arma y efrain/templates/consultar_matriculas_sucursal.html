@@ -1,0 +1,49 @@
+{%include 'header.html'%}
+<div class="container mt-5">
+    <div class="alert alert-success display-1">Consulta de Matrículas por Sucursal</div>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class='btn btn-success'>Consultar</button>
+    </form>
+
+    {% if resultados %}
+    <h2>Resultados Filtrados</h2>
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Número</th>
+                <th>Tipo de Curso</th>
+                <th>Alumno</th>
+                <th>Sucursal</th>
+                <th>Fecha</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for matricula in resultados %}
+                <tr>
+                    <td>{{ matricula.MATNUMERO }}</td>
+                    <td>{{ matricula.TIPCURCODIGO.TIPCURNOMBRE }} - ${{ matricula.TIPCURCODIGO.TIPCURVALOR }}</td>
+                    <td>{{ matricula.ALUMRUT.ALUMNOMBRE }} {{ matricula.ALUMRUT.ALUMAPATERNO }}</td>
+                    <td>{{ matricula.SUCCODIGO.SUCNOMBRE }}</td>
+                    <td>{{ matricula.MATFECHA }}</td>
+                </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="4" class="text-right"><strong>Total Valor de Cursos:</strong></td>
+                <td class="text-right"><strong>${{ total_valor }}</strong></td>
+            </tr>
+            <tr>
+                <td colspan="4" class="text-right"><strong>Total de Cursos:</strong></td>
+                <td><strong>{{ total_cursos }}</strong></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    {% elif resultados is not None %}
+        <p>No se encontraron matrículas para la sucursal seleccionada.</p>
+    {% endif %}
+    </div>
+</div>
+{%include 'footer.html'%}

@@ -1,0 +1,11 @@
+{%include 'header.html'%}
+    <div class="container mt-5">
+        <div class="alert alert-success display-1">Sucursales</div>
+        <table class="table table-striped">
+          <tr><td>Codigo de Sucursal: </td><td>{{Sucursales.SUCCODIGO}}</td></tr>
+          <tr><td>Codigo-Nombre de Ciudad: </td><td>{{Sucursales.CIUCODIGO}}   - {{ Sucursales.CIUCODIGO.CIUNOMBRE }}</td></tr>
+          <tr><td>Nombre de Sucursal: </td><td>{{Sucursales.SUCNOMBRE}}</td></tr>
+        </table>
+       <a href="/Sucursales/" class="btn btn-success">Volver</a>
+    </div>
+{%include 'footer.html'%}

@@ -1,0 +1,43 @@
+{%include 'header.html'%}
+<div class='container mt-5'>
+  <form method="GET" action="/filter-alumnos/">
+    {% csrf_token %}
+    {{ form.as_p }}
+      <button type="submit" class="btn btn-primary">Buscar</button>
+  </form>
+  <hr>
+  <!-- Mostrar los alumnos -->
+   <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Rut</th>
+        <th>Nombre</th>
+        <th>Apellido Paterno</th>
+        <th>Apellido Materno</th>
+        <th>Dirección</th>
+        <th>Email</th>
+        <th>Número de Teléfono</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for alumno in Alumnos %}
+        <tr>
+          <td>{{ alumno.ALUMRUT }}</td>
+          <td>{{ alumno.ALUMNOMBRE }}</td>
+          <td>{{ alumno.ALUMAPATERNO }}</td>
+          <td>{{ alumno.ALUMAMATERNO }}</td>
+          <td>{{ alumno.ALUMDIRECCION }}</td>
+          <td>{{ alumno.ALUMEMAIL }}</td>
+          <td>{{ alumno.ALUMNFONO }}</td>
+          <td>
+            <a href="/update-alumnos/{{alum.ALUMRUT}}/">Editar</a>
+            <a href="/delete-alumnos/{{alum.ALUMRUT}}">Eliminar</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+</div>
+
+<br>
+{%include 'footer.html'%}

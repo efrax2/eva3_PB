@@ -1,0 +1,33 @@
+{%include 'header.html'%}
+<div class='container mt-5'>
+  <form method="GET" action="/filter-ciudades/">
+    {% csrf_token %}
+    {{ form.as_p }}
+      <button type="submit" class="btn btn-primary">Buscar</button>
+  </form>
+  <hr>
+  <!-- Mostrar los ciudades -->
+   <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Codigo de ciudad</th>
+        <th>Ciudad</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      {% for Ciudades in Ciudad %}
+        <tr>
+          <td>{{ Ciudades.CIUCODIGO }}</td>
+          <td>{{ Ciudades.CIUNOMBRE }}</td>
+          <td>
+            <a href="/update-ciudades/{{Ciudades.CIUCODIGO}}">Editar</a>
+            <a href="/delete-ciudades/{{Ciudades.CIUCODIGO}}">Eliminar</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+</div>
+
+<br>
+{%include 'footer.html'%}

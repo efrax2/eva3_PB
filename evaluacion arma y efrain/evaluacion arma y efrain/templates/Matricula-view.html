@@ -1,0 +1,27 @@
+{%include 'header.html'%}
+    <div class="container mt-5">
+        <div class="alert alert-success display-1">Matricula</div>
+        <table class="table table-striped">
+            <tr>
+                <td>Codigo de Matricula: </td>
+                <td>{{Matricula.MATNUMERO}}</td>
+            </tr>
+            <tr>
+                <td>Codigo-Valor del Curso: </td>
+                <td>{{Matricula.TIPCURCODIGO}} - {{ Matricula.TIPCURCODIGO.TIPCURVALOR }}</td>
+            </tr>
+            <tr>
+                <td>Rut del Alumno: </td>
+                <td>{{Matricula.ALUMRUT.ALUMRUT}} - {{ Matricula.ALUMRUT.ALUMNOMBRE }}</td>
+            </tr>
+            <tr>
+                <td>Codigo de la Sucursal: </td>
+                <td>{{Matricula.SUCCODIGO.SUCCODIGO}} - {{ Matricula.SUCCODIGO.SUCNOMBRE }}</td>
+            </tr>
+            <tr>
+                <td>Fecha de Matricula: </td>
+                <td>{{Matricula.MATFECHA}}</td>
+        </table>
+       <a href="/Matricula/" class="btn btn-success">Volver</a>
+    </div>
+{%include 'footer.html'%}
